@@ -5,10 +5,9 @@ zippy-dl is self-contained selenium based zippyshare downloader. It also extract
 ### No need to download anything
 
 ## How to run
-Clone the repo: \
-```git clone https://github.com/JSubelj/zippy-dl.git```
-Install requirements:\
+Clone the repo & install requirements:
 ```
+git clone https://github.com/JSubelj/zippy-dl.git
 cd zippy-dl
 pip install -r requirements.txt
 ```
