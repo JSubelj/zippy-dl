@@ -96,8 +96,10 @@ if __name__=="__main__":
             for line in f:
                 urls.append(line)
     else:
-        urls.append(args.url)
-    if len(urls):
+        if args.url:
+            urls.append(args.url)
+
+    if not len(urls):
         print("ERROR: At least one url needs to be provided")
         parser.print_help()
         exit(1)
