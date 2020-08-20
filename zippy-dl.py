@@ -75,7 +75,10 @@ if __name__=="__main__":
     def download(url):
         options = webdriver.ChromeOptions()
         options.binary_location = CHROMIUM_PATH
-        options.add_argument("--headless")
+
+        options.add_argument('--headless')
+        options.add_argument('--no-sandbox')
+        options.add_argument('--disable-dev-shm-usage')
         driver = webdriver.Chrome(executable_path=CHROMIUMDRIVER_PATH, options=options)
         driver.get(url)
         element = WebDriverWait(driver, 10).until(
