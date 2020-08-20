@@ -29,7 +29,7 @@ def check_download_extract_chromediver():
         request.urlretrieve(CHROME_DRIVER_URL, os.path.join(ROOT,"chromiumdriver.zip"))
 
     def extract_chromedriver():
-        print("Extracting chrome driver")
+        print("Extracting chrome driver to", ROOT)
         subprocess.run([S7ZIP_PATH,"x",f"{os.path.join(ROOT,'chromiumdriver.zip')}",f"-o{ROOT}","-aoa"],stdout=subprocess.DEVNULL)
 
     def chrome_driver_exists():
@@ -50,7 +50,7 @@ def check_download_extract_chromium():
         return os.path.exists(CHROMIUM_PATH)
 
     def extract_chromium():
-        print("Extracting chromium")
+        print("Extracting chromium to", ROOT)
         subprocess.run([S7ZIP_PATH,"x",f"{os.path.join(ROOT,'chromium.zip')}",f"-o{ROOT}","-aoa"],stdout=subprocess.DEVNULL)
 
     if not chromium_exists():
@@ -69,6 +69,8 @@ if __name__=="__main__":
 
     args = parser.parse_args()
 
+    # MAKES 7z RUNNABLE
+    subprocess.run(["chmod","u+x",S7ZIP_PATH])
 
     def download(url):
         options = webdriver.ChromeOptions()
